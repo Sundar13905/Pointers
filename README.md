@@ -87,9 +87,76 @@ int main()
 ~~~
 
 ## Code Output: 
+
 ![](https://github.com/Sundar13905/Pointers/blob/main/pointer_output.png)
 
 ## Conclusion: -
 In this experiment we learnt the basics of pointers
 We learnt how to create and print an array using pointers 
-   
+
+---------------------------------------------------------------------
+
+# Experiment 10  To study and implement  Pointer Operations (Call by value and Call by reference)
+
+## Aim
+To run and execute a code using call by value and call by reference in C++
+
+## Theory 
+Here's a table highlighting the key differences between **call by value** and **call by reference** in C++:
+
+
+| **Feature**             | **Call by Value**                                    | **Call by Reference**                                    |
+|-------------------------|-----------------------------------------------------|----------------------------------------------------------|
+| **Definition**          | Passes a copy of the argument's value to the function. | Passes the actual memory address of the argument to the function. |
+| **Effect on Arguments** | Changes made to the parameter inside the function do not affect the original argument. | Changes made to the parameter inside the function directly affect the original argument. |
+| **Memory Usage**        | Requires more memory as a copy of the argument is created. | Requires less memory as no copy is created; only the reference is passed. |
+| **Performance**         | Can be slower due to copying large data structures.  | Faster, especially for large data structures, since no copying is involved. |
+| **Syntax**              | Uses the argument directly (e.g., `func(x)`).        | Uses `&` to denote a reference parameter (e.g., `func(int &x)`). |
+| **Safety**              | Safer, as original data cannot be accidentally modified. | Riskier, as the original data can be modified, potentially leading to unintended side effects. |
+
+## Code input 
+~~~
+#include<iostream>
+using namespace std;
+void swap(int x, int y)
+{
+    int swap;
+    swap = x;
+    x = y;
+    y = swap;
+    cout<<"Call by value: "<<endl;
+    cout<<"swapped values: "<<x<<" "<<y<<endl;;
+}
+void swap_reference(int *x, int *y)
+{
+    int swap;
+    swap = *x;
+    *x = *y;
+    *y = swap;
+    cout<<"Call by reference: "<<endl;
+    // original data altered therefore no need of printing here 
+}
+int main()
+{
+    int a,b;
+    cout<<"Enter 2 variables"<<endl;
+    cin>>a>>b;
+    swap(a,b); // call by value 
+    cout<<"\nValue of a: "<<a<<endl;
+    cout<<"Value of b: "<<b<<endl;
+    int x,y;
+    cout<<"Enter the value of 2 varibles: "<<endl;
+    cin>>x>>y;
+    swap_reference(&x,&y); // call by refernce 
+    cout<<"Value of swapped x is: "<<x<<endl;
+    cout<<"Value of swapped y is: "<<y<<endl;
+    return 0;
+}
+~~~
+
+## Code Output 
+![](https://github.com/Sundar13905/Pointers/blob/main/Exp10_out.png)
+
+## Conclusion
+- We learnt how to use the methods call by value and call by reference
+- We learnt the difference between call by value and call by reference
